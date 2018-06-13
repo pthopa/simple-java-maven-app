@@ -1,9 +1,9 @@
 pipeline {
     agent {
-        git poll: true, url: 'https://github.com/pthopa/simple-java-maven-app' 
         docker {
             image 'maven:3-alpine' 
             args '-u root' 
+            git poll: true, url: 'https://github.com/pthopa/simple-java-maven-app' 
         }
     }
     stages {
