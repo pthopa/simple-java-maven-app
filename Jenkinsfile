@@ -5,10 +5,6 @@ pipeline {
             args '-u root' 
         }
     }
-    properties([
-         $class: "SCMTrigger", 
-         scmpoll_spec: "H/1 * * * *"
-    ])
     stages {
         stage('Build') { 
             steps {
