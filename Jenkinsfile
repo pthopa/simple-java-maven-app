@@ -3,9 +3,12 @@ pipeline {
         docker {
             image 'maven:3-alpine' 
             args '-u root' 
-            git poll: true, url: 'https://github.com/pthopa/simple-java-maven-app' 
         }
     }
+    properties([
+         $class: "SCMTrigger", 
+         scmpoll_spec: "H/1 * * * *"
+    ])
     stages {
         stage('Build') { 
             steps {
